@@ -1,0 +1,30 @@
+---
+title: "Plotly Web Page"
+output: html_document
+---
+
+# Page 1
+This Web Page was created using Plotly
+
+# Page 2
+```{r setup, include=FALSE}
+library(plotly)
+library(MASS)
+
+# Generate data for two bidimensional normal distributions
+set.seed(123)
+data1 <- mvrnorm(n = 500, mu = c(1, 1), Sigma = matrix(c(1, 0, 0, 1), ncol = 2))
+data2 <- mvrnorm(n = 500, mu = c(5, 5), Sigma = matrix(c(1, 0, 0, 1), ncol = 2))
+
+# Create plot
+plot_ly() %>%
+  add_markers(x = data1[,1], y = data1[,2], color = I("red"), name = "Mean (1, 1)") %>%
+  add_markers(x = data2[,1], y = data2[,2], color = I("blue"), name = "Mean (5, 5)") %>%
+  layout(title = "Bidimensional Normal Distributions",
+         xaxis = list(title = "X"),
+         yaxis = list(title = "Y"))
+```
+
+# Page 3
+Created 2025-04-03 by Diyeipetea. Thank you!
+``` 
